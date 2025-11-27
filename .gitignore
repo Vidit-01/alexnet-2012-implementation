@@ -1,7 +1,0 @@
-data/
-__pycache__/
-*.pth
-*.pt
-*.safetensors
-results/
-checkpoints/
