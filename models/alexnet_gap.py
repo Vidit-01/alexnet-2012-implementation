@@ -30,6 +30,7 @@ class AlexNet(nn.Module):
         x = F.relu(self.conv5(x))
         x = F.max_pool2d(x, 3,2)
         x = F.adaptive_avg_pool2d(x,(1,1))
+        print(x.shape)
         x = torch.flatten(x,1)
         x = self.drop(F.relu(self.fc1(x)))
         x = self.fc1(x)

@@ -40,8 +40,13 @@ All the experiments were done on Google Colab's T4 GPU. Each Model takes around 
 5. **Batch Normalization Model**
    This model modifies the architecture by inserting BatchNorm layers after convolutional blocks, stabilizing gradients and speeding up convergence.
 
-6. **Combined Enhancements Model**
+6. **Combined Enhancements Model-Large**
    This model integrates all improvements — Random Crop, Pixel Augmentation, Dropout, and Batch Normalization — into a single architecture to maximize regularization and performance.
+7. **Combined Enhancements Model-Small**
+   Similar as Combined model, but last 3 Fully Connected layers are removed and replaced with 2 fully connected networks of size 2000 and 200
+8. **Combined Model with GAP**
+   Last Layers are removed and replaced with adaptive average pooling immediately after 5th convolution layer. A Fully Connected Layer of 200 neurons are at the last layer.
+
 
 ## Dataset
 
@@ -80,7 +85,8 @@ The following table summarizes the performance of different AlexNet variants eva
 | **Pixel Aug.**    |2.6792 | 33.31%         | 11 Epochs                    |2.99%|
 | **Dropout**       | 2.5459              | 33.57%    | 11 Epochs             |3.25%|
 | **BatchNorm**     | 1.8411              | 31.40%    | 6 Epochs              |1.08%|
-
+|**Alexnet-Big**|-|-|-|-|
+|**Alexnet-Small**|1.2574|44.09%|16 Epochs|14.23%
 
 The increase in accuracy here is found higher than the original paper. This might be accounted due to higher overfitting in implementation due to a smaller dataset being used. Therefore the effects are more visible due to regularizations.
 
