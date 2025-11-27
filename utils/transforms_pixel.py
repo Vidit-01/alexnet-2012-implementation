@@ -1,21 +1,23 @@
-from torchvision import transforms
+from torchvision.transforms import v2 as T
+import torch
 
-train_transform = transforms.Compose([
-    transforms.Resize(256),
-    transforms.CenterCrop(227),
-    transforms.ColorJitter(
-        brightness=0.2,
-        contrast=0.2,
-        saturation=0.2,
-        hue=0.02
-    ),
-    transforms.RandomGrayscale(p=0.05),
+train_transform = T.Compose([
+    T.Resize(256),
+    T.RandomCrop(227),
+    T.RandomHorizontalFlip(),
 
-    transforms.ToTensor(),
+    # === Pixel intensity augmentations on GPU ===
+    T.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.02),
+    T.RandomGrayscale(p=0.05),
+
+    # === Convert to Tensor + move aug to GPU ===
+    T.ToImage(),  # converts PIL → tensor
+    T.ToDtype(torch.float32, scale=True),
 ])
 
-val_transform = transforms.Compose([
-    transforms.Resize(256),
-    transforms.CenterCrop(227),
-    transforms.ToTensor(),
+val_transform = T.Compose([
+    T.Resize(256),
+    T.CenterCrop(227),
+    T.ToImage(),
+    T.ToDtype(torch.float32, scale=True),
 ])
