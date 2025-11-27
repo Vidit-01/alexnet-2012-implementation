@@ -11,7 +11,7 @@ AlexNet is one of the most influential convolutional neural network architecture
 
 The architecture of the original model is shown below:
 
-![AlexNet Architecture](Static/model.jpg)
+![AlexNet Architecture](static/model.jpg)
 
 *Figure: Original AlexNet architecture from Krizhevsky et al., “ImageNet Classification with Deep Convolutional Neural Networks”, 2012.*
 
