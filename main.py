@@ -1,3 +1,8 @@
-import torch
-ckpt = torch.load("results/alexnet-spatialcrop.pth",map_location="cpu")
-print(ckpt.keys())
+from torch import nn,Tensor
+import numpy as np
+
+X = Tensor(np.random.randn(10))
+d = nn.Dropout()
+print(X)
+print(d(X))
+print(d(X))
