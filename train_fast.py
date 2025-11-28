@@ -196,7 +196,7 @@ def main():
         patience=3,
         threshold=1e-4,
         min_lr=1e-6,
-        verbose=True
+        # verbose=True
     )
 
     # Early stopping

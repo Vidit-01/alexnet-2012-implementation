@@ -12,7 +12,7 @@ class AlexNet(nn.Module):
         self.conv3 = nn.Conv2d(256,384,kernel_size=3,stride=1,padding=1)
         self.conv4 = nn.Conv2d(384,384,3,1,padding=1)
         self.conv5 = nn.Conv2d(384,256,3,1,padding=1)
-
+        self.gap = nn.AdaptiveAvgPool2d((1,1))
         # Fully connected layers
         self.fc1 = nn.Linear(256,200)
         self.drop = nn.Dropout()
@@ -30,8 +30,6 @@ class AlexNet(nn.Module):
         x = F.relu(self.conv5(x))
         x = F.max_pool2d(x, 3,2)
         x = F.adaptive_avg_pool2d(x,(1,1))
-        print(x.shape)
         x = torch.flatten(x,1)
-        x = self.drop(F.relu(self.fc1(x)))
         x = self.fc1(x)
         return x
