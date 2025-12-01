@@ -64,11 +64,11 @@ This makes experimentation practical on Google Colab.
 
 The original paper achieved **top-1 accuracy of 62.5%** and **top-5 accuracy of 84.7%** on ImageNet.
 
-This implementation of variant which acheived highest accuracy on validation set, that is AlexNext with GAP, trained on TinyImageNet with fewer epochs, achieves:
+This implementation of the original model, trained on TinyImageNet with fewer epochs, achieves:
 
 
-* **Top-1 Accuracy:** *47.52*
-* **Top-5 Accuracy:** *73.08%*
+* **Top-1 Accuracy:** *50.07*
+* **Top-5 Accuracy:** *74.25%*
 
 Performance will vary depending on training epochs, augmentations, and normalization layers used.
 
