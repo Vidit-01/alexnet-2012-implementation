@@ -64,10 +64,11 @@ This makes experimentation practical on Google Colab.
 
 The original paper achieved **top-1 accuracy of 62.5%** and **top-5 accuracy of 84.7%** on ImageNet.
 
-This implementation, trained on TinyImageNet with fewer epochs, achieves:
+This implementation of variant which acheived highest accuracy on validation set, that is AlexNext with GAP, trained on TinyImageNet with fewer epochs, achieves:
 
-* **Top-1 Accuracy:** *[fill your number]*
-* **Top-5 Accuracy:** *[optional]*
+
+* **Top-1 Accuracy:** *47.52*
+* **Top-5 Accuracy:** *73.08%*
 
 Performance will vary depending on training epochs, augmentations, and normalization layers used.
 
@@ -85,8 +86,9 @@ The following table summarizes the performance of different AlexNet variants eva
 | **Pixel Aug.**    |2.6792 | 33.31%         | 11 Epochs                    |2.99%|
 | **Dropout**       | 2.5459              | 33.57%    | 11 Epochs             |3.25%|
 | **BatchNorm**     | 1.8411              | 31.40%    | 6 Epochs              |1.08%|
-|**Alexnet-Big**|-|-|-|-|
-|**Alexnet-Small**|1.2574|44.09%|16 Epochs|14.23%
+|**Alexnet-Big**|1.3031|48.22%|25 Epochs|17.90%|
+|**Alexnet-Small**|1.0938|46.83%|29 Epochs|16.51%|
+|**Alexnet-Gap**|1.2147|49.64%|30 Epochs|19.32%|
 
 The increase in accuracy here is found higher than the original paper. This might be accounted due to higher overfitting in implementation due to a smaller dataset being used. Therefore the effects are more visible due to regularizations.
 
